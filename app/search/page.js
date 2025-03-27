@@ -13,18 +13,14 @@ import {
   InputLabel,
   Drawer,
   IconButton,
-  LinearProgress, // Import LinearProgress component
+  LinearProgress,
   TextField,
   Pagination,
-  Stack,
 } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import GridViewIcon from "@mui/icons-material/GridView";
 import ViewListIcon from "@mui/icons-material/ViewList";
-import ClearIcon from "@mui/icons-material/Clear"; // Import the Clear icon
 import DogCard from "../components/DogCard";
 import CloseIcon from '@mui/icons-material/Close';
-import ReplayIcon from "@mui/icons-material/Replay";
+
 
 export default function SearchPage() {
   const [dogs, setDogs] = useState([]);
@@ -250,7 +246,15 @@ export default function SearchPage() {
       }}
     >
   {/* Title & Controls */}
-  <Box display="flex" justifyContent="space-between" alignItems="center" mb={1}>
+  <Box
+  sx={{
+    ml: filterOpen ? { xs: 0, sm: "310px" } : 0, // Adjust margin when filter is open
+    mt: 3,
+    transition: "margin-left 0.3s ease", // Smooth transition for margin adjustment
+  }}
+>
+  {/* Title & Controls */}
+  <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
     <Typography
       variant="h4"
       sx={{
@@ -265,7 +269,7 @@ export default function SearchPage() {
     {/* View Mode Toggle & Favorites */}
     <Box>
       <IconButton onClick={() => setFilterOpen(true)} color="secondary">
-        <ViewListIcon /> 
+        <ViewListIcon />
       </IconButton>
       <IconButton onClick={() => router.push("/favorites")} color="secondary">
         ❤️
@@ -295,30 +299,7 @@ export default function SearchPage() {
     </Box>
   )}
 
-  {/* Pagination Controls */}
-  {!loading && dogs.length > 0 && (
-  <Box display="flex" justifyContent="right" sx={{ mt: 3 }}>
-    <Pagination
-      count={pageCount}
-      page={page}
-      onChange={handlePageChange}
-      siblingCount={1}
-      boundaryCount={1}
-      color="primary"
-      shape="rounded"
-      sx={{
-        "& .MuiPaginationItem-root": {
-          borderRadius: "50%", // Makes each page number circular
-          width: "36px", // Adjust size
-          height: "36px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        },
-      }}
-    />
-  </Box>
-)}
+ 
 
 
   {/* Sidebar for Filters */}
@@ -329,13 +310,13 @@ export default function SearchPage() {
     variant="persistent" // Persistent drawer to keep it always visible
     sx={{
       "& .MuiDrawer-paper": {
-        width: { xs: "100%", sm: "300px" }, // Fixed width for the filter
+        width: { xs: "100%", sm: "290px" }, // Fixed width for the filter
         p: 3,
         background: "rgba(255, 255, 255, 0.1)", // Light transparent white
-backdropFilter: "blur(12px)", // Strong blur effect
-borderRadius: "10px", // Smooth rounded corners
-border: "1px solid rgba(255, 255, 255, 0.2)", // Subtle border
-boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Soft shadow
+        backdropFilter: "blur(12px)", // Strong blur effect
+        borderRadius: "10px", // Smooth rounded corners
+        border: "1px solid rgba(255, 255, 255, 0.2)", // Subtle border
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Soft shadow
 
         display: "flex",
         flexDirection: "column",
@@ -479,7 +460,6 @@ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Soft shadow
   {/* Dog List */}
   <Box
     sx={{
-      ml: filterOpen ? { xs: 0, sm: "300px" } : 0, // Adjust margin when filter is open
       mt: 3,
       transition: "margin-left 0.3s ease", // Smooth transition for margin adjustment
     }}
@@ -512,6 +492,34 @@ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Soft shadow
       ))}
     </Grid>
   </Box>
+
+   {/* Pagination Controls */}
+   {!loading && dogs.length > 0 && (
+  <Box display="flex" justifyContent="right" sx={{ mt: 3 }}>
+    <Pagination
+      count={pageCount}
+      page={page}
+      onChange={handlePageChange}
+      siblingCount={1}
+      boundaryCount={1}
+      color="primary"
+      shape="rounded"
+      sx={{
+        "& .MuiPaginationItem-root": {
+          borderRadius: "50%", // Makes each page number circular
+          width: "36px", // Adjust size
+          height: "36px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+      }}
+    />
+  </Box>
+)}
+
+  
+</Box>
 
   
 </Container>

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { loginUser } from "./service/authService"; // Correct path to authService
+import { loginUser } from "./service/authService";
 import { Container, TextField, Button, Typography, Card, CardContent, Box, CircularProgress, Alert } from "@mui/material";
 
 export default function LoginPage() {

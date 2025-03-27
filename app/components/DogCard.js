@@ -4,7 +4,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useRouter } from "next/navigation";
 
-export default function DogCard({ dog, onAdopt, onFavorite }) {
+export default function DogCard({ dog, onFavorite }) {
   const [isFavorited, setIsFavorited] = useState(false);
    const router = useRouter();
    useEffect(( )=>{
@@ -73,18 +73,18 @@ export default function DogCard({ dog, onAdopt, onFavorite }) {
 
       {/* Dog Image */}
       <CardMedia
-  component="img"
-  height="220"
-  image={dog.img || "/placeholder.jpg"}
-  alt={dog.name}
-  sx={{
-    objectFit: "cover",
-    transition: "box-shadow 0.3s ease",
-    "&:hover": {
-      boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)", // Adds a soft shadow effect on hover
-    },
-  }}
-/>
+        component="img"
+        height="220"
+        image={dog.img || "/placeholder.jpg"}
+        alt={dog.name}
+        sx={{
+          objectFit: "cover",
+          transition: "box-shadow 0.3s ease",
+          "&:hover": {
+            boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)", // Adds a soft shadow effect on hover
+          },
+        }}
+      />
 
 
       {/* Dog Details */}
