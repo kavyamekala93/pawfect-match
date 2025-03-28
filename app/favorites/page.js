@@ -173,7 +173,7 @@ const FavoritesPage = () => {
           ))
         ) : (
           <Typography variant="h6" sx={{ mt: 4, color: "black" }}>
-          You haven't added any favorites yet  ...
+          You did not add any favorites yet  ...
         </Typography>
         )}
       </Grid>
