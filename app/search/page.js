@@ -47,7 +47,6 @@ export default function SearchPage() {
   //component handling.....
     useEffect(( )=>{
         const userPermissions =localStorage.getItem("userPermissions");
-        console.log(userPermissions)
         if(!userPermissions){
              router.push("/"); 
         }
@@ -439,7 +438,7 @@ export default function SearchPage() {
     </Box>
 
     {/* Reset Button at the Bottom */}
-    <Box sx={{ display: "flex", justifyContent: "center", p: 2 }}>
+    <Box sx={{ display: "flex", justifyContent: "center", p: 2, mb: 15 }}>
       <Button
         onClick={resetFilters}
         variant="contained"
@@ -449,7 +448,7 @@ export default function SearchPage() {
           textTransform: "none",
           fontWeight: "bold",
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-          mb:2
+          
         }}
       >
         Reset Filters

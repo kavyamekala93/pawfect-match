@@ -1,5 +1,5 @@
 import React from "react";
-import MatchPerfectDog from "../components/MatchPerfectDog";
+import {MatchPerfectDog} from "../components/MatchPerfectDog";
 
 // Fetching search params on the server side and passing to client component
 const MatchPage = ({ searchParams }) => {

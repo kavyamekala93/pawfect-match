@@ -21,7 +21,6 @@ const FavoritesPage = () => {
   const router = useRouter();
      useEffect(( )=>{
          const userPermissions =localStorage.getItem("userPermissions");
-         console.log(userPermissions)
          if(!userPermissions){
               router.push("/"); 
          }
@@ -85,7 +84,6 @@ const FavoritesPage = () => {
       if (!res.ok) throw new Error("Failed to fetch match");
 
       const data = await res.json();
-      console.log(data)
       router.push(`/match?matchId=${data.match}`);
     } catch (error) {
       console.error("Error finding match:", error);
@@ -165,6 +163,9 @@ const FavoritesPage = () => {
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     <strong>Age:</strong> {dog.age} years
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Location:</strong> {dog.location}
                   </Typography>
                 </CardContent>
               </Card>

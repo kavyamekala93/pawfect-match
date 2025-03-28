@@ -1,4 +1,4 @@
-"use client";
+"use client"; // making this component to be a client side component to separate the logic
 import React, { useEffect, useState } from "react";
 import { CircularProgress, Box, Typography, Card, CardContent, CardMedia, IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -7,7 +7,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/navigation";
 
 
-export default function MatchPerfectDog(matchId) {
+export const MatchPerfectDog = ({matchId}) => {
   const [dog, setDog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
@@ -16,7 +16,6 @@ export default function MatchPerfectDog(matchId) {
 
      useEffect(( )=>{
          const userPermissions =localStorage.getItem("userPermissions");
-         console.log(userPermissions)
          if(!userPermissions){
               router.push("/"); 
          }

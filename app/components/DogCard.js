@@ -9,7 +9,6 @@ export default function DogCard({ dog, onFavorite }) {
    const router = useRouter();
    useEffect(( )=>{
        const userPermissions =localStorage.getItem("userPermissions");
-       console.log(userPermissions)
        if(!userPermissions){
             router.push("/"); 
        }
